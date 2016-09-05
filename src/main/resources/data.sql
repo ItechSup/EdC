@@ -1,0 +1,1 @@
+INSERT INTO task (name, description, priority, status, archived) VALUES ('Courses', 'Lait, oeufs, scie sauteuse, scruiseur à mygule', 'MOYENNE', 'ACTIVE', 0);
