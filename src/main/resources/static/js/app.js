@@ -40,7 +40,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 			alert("Veuillez remplir tous les champs");
 		}
 		else{
-		 var date = new Date();		
+		var date = new Date();		
 		 $http.post(urlBase + '/tasks', {
              taskName: $scope.taskName,
              taskDescription: $scope.taskDesc,
@@ -76,7 +76,8 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	    // is newly selected
         // HTTP PATCH to COMPLETED state
 	    else {
-	      $http.patch(taskUri, { taskStatus: 'COMPLETED' }).
+	    var date = new Date();
+	      $http.patch(taskUri, { taskStatus: 'COMPLETED',archiveDate:date }).
 		  success(function(data) {
 			  alert("Tâche activée");
               // Do we really need to fetch all task data each time ?
