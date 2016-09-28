@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -30,6 +35,12 @@ public class Task {
 
 	@Column(name = "archived")
 	private int taskArchived = 0;
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	@Column(name = "createdDate")
+	private String taskCreatedDate = dateFormat.format(new Date());
+	
+	@Column(name = "archivedDate")
+	private String taskArchivedDate = dateFormat.format(new Date());;
 
 	public int getTaskId() {
 		return id;

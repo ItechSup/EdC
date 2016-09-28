@@ -8,6 +8,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	$scope.statuses=['ACTIVE','ACHEVEE'];
 	$scope.priorities=['HAUTE','MOYENNE','BASSE'];
 	$http.defaults.headers.post["Content-Type"] = "application/json";
+	/*$scope.dateCreate=*/
 
     function findAllTasks() {
         //get all tasks and display initially
@@ -27,6 +28,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
                 $scope.taskDesc="";
                 $scope.taskPriority="";
                 $scope.taskStatus="";
+                $scope.taskDate=""
                 $scope.toggle='!toggle';
             });
     }
