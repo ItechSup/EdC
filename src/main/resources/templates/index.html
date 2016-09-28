@@ -63,7 +63,7 @@
 						</div>		
 						
 						<div>
-							date de création : {{task.creationDate}}
+							date de création : {{task.creationDate | date :  "dd.MM.y ( à H 'H' mm ' et ' ss' secondes' )"}}
 						</div>
 													
 				</div>
@@ -98,7 +98,7 @@
 						</div>	
 						
 						<div ng-if= "task.archiveDate">
-							date d'archivage : {{task.archiveDate}}
+							date d'archivage : {{task.archiveDate | date : "dd.MM.y ( à H 'H' mm ' et ' ss' secondes' )"}}
 						</div>								
 				</div>
 				
