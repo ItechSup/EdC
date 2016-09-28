@@ -1,5 +1,6 @@
 package fr.itechsup.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -13,5 +14,7 @@ public interface TaskRepository extends CrudRepository<Task, Integer> {
 
 	List<Task> findByTaskArchived(@Param("archivedfalse") int taskArchivedFalse);
 	List<Task> findByTaskStatus(@Param("status") String taskStatus);
+	List<Task> findByTaskDateCreate(@Param("datecreate") Date taskDateCreate);
+	List<Task> findByTaskDateArchived(@Param("datearchived") Date taskDateArchived);
 
 }

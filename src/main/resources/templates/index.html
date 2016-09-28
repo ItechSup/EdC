@@ -55,6 +55,26 @@
 						<a href="#" class="uncheckedClass"> {{task.taskName}} <span
 							class="action-status">{{task.taskStatus}}</span>
 						</a>
+					</div>		
+					<div ng-if="task.taskDateCreate=='COMPLETED'">
+						<a href="#" class="checkedClass"> {{task.taskDateCreate}} <span
+							class="action-datecreate">{{task.taskDateCreate}}</span>
+						</a>
+					</div>
+					<div ng-if="task.taskDateCreate=='ACTIVE'">
+						<a href="#" class="uncheckedClass"> {{task.taskDateCreate}} <span
+							class="action-datecreate">{{task.taskDateCreate}}</span>
+						</a>
+					</div>
+					<div ng-if="task.taskDateArchived=='COMPLETED'">
+						<a href="#" class="checkedClass"> {{task.taskDateArchived}} <span
+							class="action-datearchived">{{task.taskDateArchived}}</span>
+						</a>
+					</div>
+					<div ng-if="task.taskDateArchived=='ACTIVE'">
+						<a href="#" class="uncheckedClass"> {{task.taskDateArchived}} <span
+							class="action-datearchived">{{task.taskDateArchived}}</span>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -93,6 +113,14 @@
 								ng-options="priority as priority for priority in priorities">
 									<option value="">-- Choisir --</option>
 							</select></td>
+						</tr>
+						<tr>
+							<td>Date Creation :</td>
+							<td><input type="date" ng-model="taskDateCreate" /></td>
+						</tr>
+						<tr>
+							<td>Date Archivée :</td>
+							<td><input type="date" ng-model="taskDateArchived" /></td>
 						</tr>
 						<tr>
 							<td><br />
