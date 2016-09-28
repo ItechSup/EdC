@@ -1,5 +1,5 @@
 package fr.itechsup.entity;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +31,12 @@ public class Task {
 	@Column(name = "archived")
 	private int taskArchived = 0;
 
+	@Column(name = "creationDate")
+	private Date creationDate;
+	
+	@Column(name = "archiveDate")
+	private Date archiveDate;
+	
 	public int getTaskId() {
 		return id;
 	}
@@ -77,6 +83,22 @@ public class Task {
 
 	public void setTaskArchived(int taskArchived) {
 		this.taskArchived = taskArchived;
+	}
+	
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Date getArchiveDate() {
+		return archiveDate;
+	}
+
+	public void setArchiveDate(Date archiveDate) {
+		this.archiveDate = archiveDate;
 	}
 
 	@Override

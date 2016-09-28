@@ -15,6 +15,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
             success(function (data) {
                 if (data._embedded != undefined) {
                     $scope.tasks = data._embedded.tasks;
+                    console.log($scope.tasks);
                 } else {
                     $scope.tasks = [];
                 }
@@ -39,11 +40,13 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 			alert("Veuillez remplir tous les champs");
 		}
 		else{
+		 var date = new Date();		
 		 $http.post(urlBase + '/tasks', {
              taskName: $scope.taskName,
              taskDescription: $scope.taskDesc,
              taskPriority: $scope.taskPriority,
-             taskStatus: $scope.taskStatus
+             taskStatus: $scope.taskStatus,
+             creationDate: date
          }).
 		  success(function(data, status, headers) {
 			 alert("Tâche ajoutée");
