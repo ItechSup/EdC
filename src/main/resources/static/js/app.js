@@ -25,6 +25,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
                 }
                 $scope.taskName="";
                 $scope.taskDesc="";
+                $scope.taskDate="";
                 $scope.taskPriority="";
                 $scope.taskStatus="";
                 $scope.toggle='!toggle';
@@ -35,7 +36,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 
 	//add a new task
 	$scope.addTask = function addTask() {
-		if($scope.taskName=="" || $scope.taskDesc=="" || $scope.taskPriority == "" || $scope.taskStatus == ""){
+		if($scope.taskName=="" || $scope.taskDesc=="" || $scope.taskPriority == "" || $scope.taskStatus == "" || $scope.taskDate == ""){
 			alert("Veuillez remplir tous les champs");
 		}
 		else{
