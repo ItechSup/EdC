@@ -37,7 +37,7 @@
 					<span class="panel-title">Taches en cours</span>
 				</div>
 				
-				<div class="task" ng-repeat="task in tasks" ng-if="task.taskStatus == 'ACTIVE'">
+				<div class="task" ng-repeat="task in tasks  | orderBy:'-creationDate' " ng-if="task.taskStatus == 'ACTIVE'">
 						<span ng-if="task.taskPriority=='HAUTE'"
 							class="priority priority-red"> {{task.taskPriority}} </span> <span
 							ng-if="task.taskPriority=='MOYENNE'"
@@ -60,7 +60,12 @@
 							<a href="#" class="uncheckedClass"> {{task.taskName}} <span
 								class="action-status">{{task.taskStatus}}</span>
 							</a>
-						</div>									
+						</div>		
+						
+						<div>
+							date de création : {{task.creationDate}}
+						</div>
+													
 				</div>
 				
 				<div class="panel-heading">
@@ -92,7 +97,7 @@
 							</a>
 						</div>	
 						
-						<div>
+						<div ng-if= "task.archiveDate">
 							date d'archivage : {{task.archiveDate}}
 						</div>								
 				</div>
