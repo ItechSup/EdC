@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -30,6 +35,20 @@ public class Task {
 
 	@Column(name = "archived")
 	private int taskArchived = 0;
+
+	@Column(name = "creationDate")
+	private Date creationDate;
+	
+	@Column(name = "archivedDate")
+	private Date archivedDate;
+	
+	public Date getArchivedDate() {
+		return archivedDate;
+	}
+
+	public void setArchivedDate(Date archivedDate) {
+		this.archivedDate = archivedDate;
+	}
 
 	public int getTaskId() {
 		return id;
@@ -79,10 +98,19 @@ public class Task {
 		this.taskArchived = taskArchived;
 	}
 
+		public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+	
+
 	@Override
 	public String toString() {
 		return "Task [id=" + id + ", taskName=" + taskName + ", taskDescription=" + taskDescription + ", taskPriority="
-				+ taskPriority + ",taskStatus=" + taskStatus + "]";
+				+ taskPriority + ",taskStatus=" + taskStatus + ",creationDate="+ creationDate+ "]";
 	}
 
 }

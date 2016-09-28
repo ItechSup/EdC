@@ -27,8 +27,10 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
                 $scope.taskDesc="";
                 $scope.taskPriority="";
                 $scope.taskStatus="";
+                $scope.creationDate="1/1/1970";
                 $scope.toggle='!toggle';
             });
+        
     }
 
     findAllTasks();
@@ -39,11 +41,13 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 			alert("Veuillez remplir tous les champs");
 		}
 		else{
+			var creationDate = new Date();
 		 $http.post(urlBase + '/tasks', {
              taskName: $scope.taskName,
              taskDescription: $scope.taskDesc,
              taskPriority: $scope.taskPriority,
-             taskStatus: $scope.taskStatus
+             taskStatus: $scope.taskStatus,
+             creationDate: creationDate
          }).
 		  success(function(data, status, headers) {
 			 alert("Tâche ajoutée");
@@ -51,6 +55,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
              // Do we really need to fetch all task data each time ?
              findAllTasks();
 		    });
+		 
 		}
 	};
 		
