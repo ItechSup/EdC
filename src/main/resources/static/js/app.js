@@ -75,6 +75,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	      $scope.selection.splice(idx, 1);
 	    }
 
+	    
 	    // is newly selected
         // HTTP PATCH to COMPLETED state
 	    else {

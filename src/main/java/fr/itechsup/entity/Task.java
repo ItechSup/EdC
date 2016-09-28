@@ -90,6 +90,7 @@ public class Task {
 		this.taskStatus = taskStatus;
 	}
 
+	
 	public int isTaskArchived() {
 		return taskArchived;
 	}
