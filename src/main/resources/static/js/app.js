@@ -27,6 +27,8 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
                 $scope.taskDesc="";
                 $scope.taskPriority="";
                 $scope.taskStatus="";
+                $scope.taskDateCreate="";
+                $scope.taskDateArchived="";
                 $scope.toggle='!toggle';
             });
     }
@@ -35,7 +37,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 
 	//add a new task
 	$scope.addTask = function addTask() {
-		if($scope.taskName=="" || $scope.taskDesc=="" || $scope.taskPriority == "" || $scope.taskStatus == ""){
+		if($scope.taskName=="" || $scope.taskDesc=="" || $scope.taskPriority == "" || $scope.taskStatus == "" || $scope.taskDateCreate == "" || $scope.taskDateArchived == ""){
 			alert("Veuillez remplir tous les champs");
 		}
 		else{
@@ -43,7 +45,9 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
              taskName: $scope.taskName,
              taskDescription: $scope.taskDesc,
              taskPriority: $scope.taskPriority,
-             taskStatus: $scope.taskStatus
+             taskStatus: $scope.taskStatus,
+             taskDateCreate: $scope.taskDateCreate,
+             taskDateArchived: $scope.taskDateArchived
          }).
 		  success(function(data, status, headers) {
 			 alert("Tâche ajoutée");

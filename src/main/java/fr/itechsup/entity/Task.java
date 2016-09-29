@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -30,6 +33,12 @@ public class Task {
 
 	@Column(name = "archived")
 	private int taskArchived = 0;
+	
+	@Column(name = "datecreate")
+	private Date taskDateCreate;
+	
+	@Column(name = "datearchived")
+	private Date taskDateArchived;
 
 	public int getTaskId() {
 		return id;
@@ -79,10 +88,26 @@ public class Task {
 		this.taskArchived = taskArchived;
 	}
 
+	public Date getTaskDateCreate() {
+		return taskDateCreate;
+	}
+
+	public void setTaskDateCreate(Date taskDateCreate) {
+		this.taskDateCreate = taskDateCreate;
+	}
+
+	public Date getTaskDateArchived() {
+		return taskDateArchived;
+	}
+
+	public void setTaskDateArchived(Date taskDateArchived) {
+		this.taskDateArchived = taskDateArchived;
+	}
+
 	@Override
 	public String toString() {
 		return "Task [id=" + id + ", taskName=" + taskName + ", taskDescription=" + taskDescription + ", taskPriority="
-				+ taskPriority + ",taskStatus=" + taskStatus + "]";
+				+ taskPriority + ",taskStatus=" + taskStatus + ",taskDateCreate=" + taskDateCreate + ",taskDateArchived=" + taskDateArchived +"]";
 	}
 
 }
